@@ -177,7 +177,7 @@ DEPENDENCIES
   capistrano-notification (= 0.0.2)
   capybara
   configatron
-  cucumber-rails
+  cucumber-rails (~> 0.3.2)
   daemons
   database_cleaner
   delayed_job

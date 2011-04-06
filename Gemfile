@@ -44,7 +44,7 @@ group :test, :cucumber do
 #  gem 'autotest-growl'
   gem 'daemons'
   gem 'spork'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', '~>0.3.2'
   gem 'webrat'
   gem 'moro-miso'
   gem 'database_cleaner'
