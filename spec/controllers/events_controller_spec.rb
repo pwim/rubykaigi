@@ -12,4 +12,20 @@ describe EventsController do
       assigns[:rooms].should == [event.room]
     end
   end
+
+  context 'timetable does not exist' do
+    describe 'GET /2011/ja/timetable' do
+      before { get :timetable, {:year => '2011', :locale => 'ja'} }
+      subject { response.code }
+      it { should === '404' }
+    end
+  end
+
+  context 'timetable exists' do
+    describe 'GET /2011/ja/timetable' do
+      before { get :timetable, {:year => '2010', :locale => 'ja'} }
+      subject { response.code }
+      it { should === '200' }
+    end
+  end
 end

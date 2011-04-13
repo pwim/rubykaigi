@@ -16,12 +16,16 @@ class EventsController < LocaleBaseController
   end
 
   def timetable
-    @events = Event.root :include => [:room, :time_slits]
-    @rooms = @events.map(&:room).uniq.sort_by(&:sort_order)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @events }
+    if params[:year] == '2010'
+      @events = Event.root :include => [:room, :time_slits]
+      @rooms = @events.map(&:room).uniq.sort_by(&:sort_order)
+  
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @events }
+      end
+    else
+      render :file => 'public/404.html', :status => 404
     end
   end
 
